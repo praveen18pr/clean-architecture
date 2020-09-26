@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 
 abstract class BaseActivity : Activity() {
 
-    lateinit var viewModel: ViewModel
+    private lateinit var viewModel: ViewModel
 
     abstract fun getLayoutId(): Int
 

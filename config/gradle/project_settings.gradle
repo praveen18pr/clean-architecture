@@ -1,0 +1,69 @@
+ext {
+
+    //#####################
+    //###Global settings###
+    //#####################
+    kotlinVersion = "1.4.10"
+    googleServicesVersion = "3.1.0"
+
+    appVersion = [
+            versionMajor: 1,
+            versionMinor: 0,
+            versionPatch: 0
+    ]
+
+    project = [
+            compileSDKVersion = 30,
+            targetSDKVersion = 30,
+            buildToolsVersion = "30.0.1",
+            minSDKVersion = 21,
+            versionCode = appVersion.versionMajor * 1000 + appVersion.versionMinor + 100 + appVersion.versionPatch,
+            versionName = "$appVersion.versionMajor.$appVersion.versionMinor.$appVersion.$appVersion.versionPatch"
+    ]
+
+    def modules = [
+            app         : "app",
+            presentation: "presentation",
+            domain      : "domain",
+            data        : "data",
+    ]
+
+    //#############################
+    // DEPENDENCIES DEFINITIONS
+    //#############################
+
+    libraries = [
+            kotlinStdLib    : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
+            coreKTX         : "androidx.core:core-ktx:1.3.1",
+            appCompat       : "androidx.appcompat:appcompat:1.2.0",
+            constraintLayout: "androidx.constraintlayout:constraintlayout:2.0.1"
+    ]
+
+    testLibraries = [
+            junit   : "junit:junit:4.13",
+            extjunit: "androidx.test.ext:junit:1.1.2",
+            expresso: "androidx.test.espresso:espresso-core:3.3.0"
+    ]
+
+    appModuleDependencies = [
+            [configuration: "implementation", dependency: project(modules.presentation)],
+            [configuration: "implementation", dependency: libraries.kotlinStdLib],
+            [configuration: "implementation", dependency: libraries.coreKTX],
+            [configuration: "implementation", dependency: libraries.appCompat],
+            [configuration: "implementation", dependency: libraries.constraintLayout]
+    ]
+
+    presentationModuleDependencies = [
+            [configuration: "compile", dependency: project(modules.domain)],
+            [configuration: "implementation", dependency: libraries.kotlinStdLib]
+    ]
+
+    domainModuleDependencies = [
+            [configuration: "implementation", dependency: libraries.kotlinStdLib]
+    ]
+
+    dataModuleDependencies = [
+            [configuration: "compile", dependency: project(modules.domain)],
+            [configuration: "implementation", dependency: libraries.kotlinStdLib]
+    ]
+}
