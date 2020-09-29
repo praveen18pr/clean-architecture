@@ -1,20 +1,28 @@
 package com.praveen.cleanarchitecture.base
 
-import android.app.Activity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 
-abstract class BaseActivity : Activity() {
+abstract class BaseActivity<M : ViewModel> : AppCompatActivity() {
 
-    private lateinit var viewModel: ViewModel
+    protected lateinit var viewModel: M
 
     abstract fun getLayoutId(): Int
 
-    abstract fun generateViewModel(): ViewModel
+    abstract fun createViewModel(): Class<M>
+
+    abstract fun subscribeToObservers()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
-        viewModel = generateViewModel()
+        generateViewModel()
+        subscribeToObservers()
+    }
+
+    private fun generateViewModel() {
+        viewModel = ViewModelProvider(this).get(createViewModel())
     }
 }

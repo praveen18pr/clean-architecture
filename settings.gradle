@@ -1,5 +1,2 @@
-include ':domain'
-include ':data'
-include ':presentation'
-include ':app'
+include ':app', ':domain', ':data'
 rootProject.name = "Clean Architecture"

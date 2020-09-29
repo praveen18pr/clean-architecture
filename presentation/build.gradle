@@ -1,7 +1,0 @@
-apply plugin: "kotlin"
-
-dependencies {
-    presentationModuleDependencies.each {
-        add(it.configuration, it.dependency, it.options)
-    }
-}
