@@ -7,4 +7,6 @@ class UseCaseFactory(
 ) {
 
     suspend fun fetchNewsList() = newsListGateway.fetchNewsList()
+
+    // Use Case - ListUseCase ->
 }

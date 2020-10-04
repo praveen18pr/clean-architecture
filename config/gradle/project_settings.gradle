@@ -23,7 +23,6 @@ ext {
 
     def modules = [
             app         : "app",
-            presentation: "presentation",
             domain      : "domain",
             data        : "data",
     ]
