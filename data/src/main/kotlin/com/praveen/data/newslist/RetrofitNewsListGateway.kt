@@ -14,6 +14,7 @@ class RetrofitNewsListGateway(
     // TODO change from flow to something else // god knows
     // TODO Convert it to domain model
     // TODO return a list
+    // TODO Exception classs
     override suspend fun fetchNewsList(): Flow<NewsResponse> =
         flow {
             val news = newsRepository.newsService.getNews()
