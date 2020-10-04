@@ -5,9 +5,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class NewsRepository {
 
+    // TODO Enable logger
+    // TODO handle error scenarios
+    // TODO handle header parameters
+
     companion object {
         private const val BASE_URL = "https://api.nytimes.com/svc/"
-        private const val NEWS_DELAY = 2000L
         //API key = NpMD3rGsJdSQxAoMTlUGQue9eHGrGw40
     }
 

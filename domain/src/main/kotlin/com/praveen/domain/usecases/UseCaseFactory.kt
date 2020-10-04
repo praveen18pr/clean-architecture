@@ -4,5 +4,5 @@ class UseCaseFactory(
     private val newsListUseCase: NewsListUseCase
 ) {
 
-    suspend fun fetchNewsList() = newsListUseCase.makeAPICall()
+    suspend fun fetchNewsList() = newsListUseCase.fetchNewsList()
 }
