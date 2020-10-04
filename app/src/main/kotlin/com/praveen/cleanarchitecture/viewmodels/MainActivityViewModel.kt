@@ -17,7 +17,7 @@ class MainActivityViewModel : ViewModel(), KoinComponent {
             val fetchNewsList = useCaseFactory.fetchNewsList()
             fetchNewsList.collect {
                 println("Current thread :${Thread.currentThread().name}")
-                println("The news List size is : ${it.size}")
+                println("The news List size is : ${it.status}")
             }
         }
     }

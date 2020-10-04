@@ -46,8 +46,9 @@ ext {
             navigationUI         : "androidx.navigation:navigation-ui-ktx:2.3.0",
             viewModelLifecycle   : "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0-beta01",
             retrofit             : 'com.squareup.retrofit2:retrofit:2.6.0',
-            retrofitGsonConverter: 'com.squareup.retrofit2:converter-gson:2.6.0'
-
+            retrofitGsonConverter: 'com.squareup.retrofit2:converter-gson:2.6.0',
+            retrofitConverter    : "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.7.0",
+            okHttp3Logging       : "com.squareup.okhttp3:logging-interceptor:4.5.0",
     ]
 
     testLibraries = [
@@ -81,5 +82,7 @@ ext {
             [configuration: "implementation", dependency: libraries.coroutinesCore],
             [configuration: "implementation", dependency: libraries.retrofit],
             [configuration: "implementation", dependency: libraries.retrofitGsonConverter],
+            // [configuration: "implementation", dependency: libraries.retrofitConverter],
+            // [configuration: "implementation", dependency: libraries.okHttp3Logging],
     ]
 }
