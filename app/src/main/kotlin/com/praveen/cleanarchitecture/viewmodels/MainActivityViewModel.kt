@@ -1,23 +1,22 @@
 package com.praveen.cleanarchitecture.viewmodels
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.praveen.domain.usecases.UseCaseFactory
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 
-class MainActivityViewModel(
-    private val useCaseFactory: UseCaseFactory
-) : ViewModel() {
+class MainActivityViewModel : ViewModel(), KoinComponent {
 
-    var testLiveData = MutableLiveData<Boolean>()
+    private val useCaseFactory by inject<UseCaseFactory>()
 
     fun fetchNewsList() {
-        CoroutineScope(Dispatchers.IO).launch {
+        viewModelScope.launch {
             val fetchNewsList = useCaseFactory.fetchNewsList()
             fetchNewsList.collect {
+                println("Current thread :${Thread.currentThread().name}")
                 println("The news List size is : ${it.size}")
             }
         }

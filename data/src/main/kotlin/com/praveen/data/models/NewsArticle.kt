@@ -1,14 +1,12 @@
-package com.devtides.androidcoroutinesretrofit.model
+package com.praveen.data.models
 
-import com.google.gson.annotations.SerializedName
 
+data class NewsResponse(
+    val status: String,
+    val results: List<NewsArticle>
+)
 
 data class NewsArticle(
-    val author: String? = null,
+    val type: String? = null,
     val title: String? = null,
-    val description: String? = null,
-    val url: String? = null,
-    @SerializedName("imageUrl")
-    val urlToImage: String? = null,
-    val publishedAt: String? = null
 )

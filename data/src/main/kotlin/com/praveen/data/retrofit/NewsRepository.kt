@@ -6,11 +6,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 class NewsRepository {
 
     companion object {
-        private const val BASE_URL = "https://raw.githubusercontent.com/DevTides/NewsApi/master/"
+        private const val BASE_URL = "https://api.nytimes.com/svc/"
         private const val NEWS_DELAY = 2000L
+        //API key = NpMD3rGsJdSQxAoMTlUGQue9eHGrGw40
     }
 
-    private val newsService = Retrofit.Builder()
+    val newsService: NewsService = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()

@@ -1,11 +1,11 @@
 package com.praveen.data.retrofit
 
-import com.devtides.androidcoroutinesretrofit.model.NewsArticle
+import com.praveen.data.models.NewsResponse
 import kotlinx.coroutines.flow.Flow
 import retrofit2.http.GET
 
 interface NewsService {
 
-    @GET("news.json")
-    suspend fun getNews(): Flow<List<NewsArticle>>
+    @GET("mostpopular/v2/emailed/7.json?api-key=NpMD3rGsJdSQxAoMTlUGQue9eHGrGw40")
+    fun getNews(): Flow<NewsResponse>
 }

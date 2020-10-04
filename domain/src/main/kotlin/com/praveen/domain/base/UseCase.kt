@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.flowOn
 
 abstract class UseCase<T> {
 
-    abstract fun makeAPICall(): Flow<T>
+    abstract suspend fun makeAPICall(): Flow<T>
 
-    fun execute() = makeAPICall().flowOn(Dispatchers.IO)
+    suspend fun execute() = makeAPICall().flowOn(Dispatchers.IO)
 }

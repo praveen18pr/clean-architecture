@@ -1,12 +1,8 @@
 package com.praveen.domain.usecases
 
-import com.praveen.domain.gateway.NewsListGateway
-
 class UseCaseFactory(
-    private val newsListGateway: NewsListGateway
+    private val newsListUseCase: NewsListUseCase
 ) {
 
-    suspend fun fetchNewsList() = newsListGateway.fetchNewsList()
-
-    // Use Case - ListUseCase ->
+    suspend fun fetchNewsList() = newsListUseCase.makeAPICall()
 }
