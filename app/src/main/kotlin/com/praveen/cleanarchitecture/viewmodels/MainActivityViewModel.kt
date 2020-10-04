@@ -10,6 +10,7 @@ import org.koin.core.inject
 
 class MainActivityViewModel : ViewModel(), KoinComponent {
 
+    // TODO learn and write test cases
     private val useCaseFactory by inject<UseCaseFactory>()
 
     fun fetchNewsList() {

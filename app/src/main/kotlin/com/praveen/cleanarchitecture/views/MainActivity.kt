@@ -7,6 +7,7 @@ import com.praveen.cleanarchitecture.viewmodels.MainActivityViewModel
 
 class MainActivity : BaseActivity<MainActivityViewModel>() {
 
+    // TODO use compose instead of default XML
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.fetchNewsList()
