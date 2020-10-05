@@ -23,6 +23,13 @@ android {
         }
     }
 
+    buildFeatures {
+
+        dataBinding true
+        viewBinding true
+
+    }
+
     sourceSets { main.java.srcDirs += 'src/main/kotlin' }
 }
 
@@ -33,3 +40,4 @@ dependencies {
 }
 
 // apply plugin: 'com.google.gms.google-services'
+apply plugin: 'kotlin-kapt'
